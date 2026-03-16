@@ -673,3 +673,106 @@ button {
     font-size: 1.25rem;
   }
 }
+
+/* ─── Page Layout (3-column) ─────────────────────────────────────── */
+.page-layout {
+  display: flex;
+  align-items: flex-start;
+  gap: 0;
+  width: 100%;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+/* ─── Main Content ────────────────────────────────────────────────── */
+/* REPLACE the existing .app-main block with this */
+.app-main {
+  flex: 1;
+  min-width: 0; /* prevents flex overflow */
+  padding: 0 20px 60px;
+}
+
+/* ─── Sidebars ────────────────────────────────────────────────────── */
+.sidebar {
+  width: 180px;
+  flex-shrink: 0;
+  padding: 32px 10px 0;
+}
+
+.sidebar--left {
+  order: 1;
+}
+.app-main {
+  order: 2;
+}
+.sidebar--right {
+  order: 3;
+}
+
+/* Sticky so the ad follows as user scrolls */
+.sidebar .ad-container {
+  position: sticky;
+  top: 24px;
+}
+
+/* ─── Ad Container ────────────────────────────────────────────────── */
+.ad-container {
+  width: 100%;
+  text-align: center;
+}
+
+.ad-label {
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 4px;
+  opacity: 0.5;
+}
+
+/* ─── Bottom Ad ───────────────────────────────────────────────────── */
+.results .ad-container {
+  margin-top: 8px;
+  border-top: 1px solid var(--border);
+  padding-top: 12px;
+}
+
+/* ─── Hide sidebars on smaller screens ───────────────────────────── */
+@media (max-width: 1100px) {
+  .sidebar {
+    display: none;
+  }
+  .app-main {
+    padding: 0 20px 60px;
+  }
+}
+
+@media (max-width: 600px) {
+  .app-header {
+    padding: 32px 16px 28px;
+  }
+  .form-section,
+  .stats-section,
+  .video-list-section {
+    padding: 20px 16px;
+  }
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+  .highlights-grid {
+    grid-template-columns: 1fr;
+  }
+  .video-list-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .search-input {
+    width: 100%;
+  }
+  .col-thumb {
+    display: none;
+  }
+  .stat-card__value {
+    font-size: 1.25rem;
+  }
+}
