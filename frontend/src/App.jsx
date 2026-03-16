@@ -4,7 +4,7 @@ import StatsGrid from './components/StatsGrid';
 import VideoList from './components/VideoList';
 import SEO from './components/SEO';
 
-const API_BASE = 'http://localhost:5000/api';
+const API_BASE = import.meta.env.VITE_API_URL;
 
 function App() {
   const [loading, setLoading] = useState(false);
